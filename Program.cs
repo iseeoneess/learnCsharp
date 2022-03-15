@@ -1,4 +1,5 @@
-﻿ using System;
+﻿using System;
+using System.Globalization; // Чтобы использовать NumberFormatInfo, подключили либу
 
 
 namespace LearnCSharp
@@ -8,24 +9,16 @@ namespace LearnCSharp
         static void Main(string[] args)
 
         {
-            Console.WriteLine("Введите число 1:");
 
-            string num1 = Console.ReadLine();
+            string str = "1.9";
 
-            int convert1 = Convert.ToInt32(num1);
+            NumberFormatInfo numberFormatInfo = new NumberFormatInfo // Глобальная конвертация
+            {
+                NumberDecimalSeparator = ".",
+            };
 
-
-            Console.WriteLine("Введите число 2:");
-
-            string num2 = Console.ReadLine();
-
-            int convert2 = Convert.ToInt32(num2);
-
-
-            int sum = convert1 + convert2;
-
-            Console.WriteLine("Сумма чисел: " + sum);
-
+            double a = Convert.ToDouble(str, numberFormatInfo);
+            Console.WriteLine(a);
 
         }
     }
