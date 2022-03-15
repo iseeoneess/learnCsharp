@@ -7,14 +7,12 @@ namespace LearnCSharp
     {
         static void Main(string[] args)
         {
-            int a = 3 * 10;
-            if (a == 30)
-            {
-                Console.WriteLine("a = 30");
-            };
+            string data;
 
-            string msg = "Eto C# babe";
-            Console.WriteLine(msg);
+            data = Console.ReadLine();
+            string xueta = " aga";
+
+            Console.WriteLine(data + xueta);
 
         }
     }
