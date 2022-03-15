@@ -7,7 +7,7 @@ namespace Program
     {
         static void Main(string[] arg)
         {
-
+            Console.WriteLine("Hello world!");
         }
     }
 }
