@@ -1,13 +1,21 @@
-﻿using System;
+﻿ using System;
 
 
-namespace Program
+namespace LearnCSharp
 {
     public class Program
     {
-        static void Main(string[] arg)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Hello world!");
+            int a = 3 * 10;
+            if (a == 30)
+            {
+                Console.WriteLine("a = 30");
+            };
+
+            string msg = "Eto C# babe";
+            Console.WriteLine(msg);
+
         }
     }
 }
