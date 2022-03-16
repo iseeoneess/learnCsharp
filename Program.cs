@@ -1,29 +1,36 @@
 ﻿using System;
-using System.Globalization; // Чтобы использовать NumberFormatInfo, подключили либу
 
 
 namespace LearnCSharp
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
-
         {
-            string inputNum = Console.ReadLine(); // Получаем значение от пользователя
+            // Среднее арифметическое двух чисел
+            Console.WriteLine("Данная программа вычисляет С.А двух чисел.");
+            
+            double firstNum, secondNum, thirdNum;
 
-            int num; // Объявляем переменную, в которую поместится наше число
 
-            bool resultNum = int.TryParse(inputNum, out num); // Создаем еще 1 переменную, которая выдаст true or false
-            // Пробуем ее спарсить. // Впихиваем то, что хотим запарсить, в 2 аргумент передаем ту переменную, которую объявили выше.
+            Console.WriteLine("Введите первое число: ");
 
-            if (resultNum) // Если resultNum == true {};
-            {
-                Console.WriteLine("Конвертация успешна, значение = " + num);
-            }
-            else
-            {
-                Console.WriteLine("Error, введите число!");
-            }
+            firstNum = double.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("Введите второе число");
+
+            secondNum = double.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("Введите третье число");
+
+            thirdNum = double.Parse(Console.ReadLine());
+
+
+            double result = (firstNum + secondNum + thirdNum) / 3;
+
+            Console.WriteLine("Среднее арифметическое этих чисел = " + result);
 
         }
     }
