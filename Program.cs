@@ -9,16 +9,21 @@ namespace LearnCSharp
         static void Main(string[] args)
 
         {
+            string inputNum = Console.ReadLine(); // Получаем значение от пользователя
 
-            string str = "1.9";
+            int num; // Объявляем переменную, в которую поместится наше число
 
-            NumberFormatInfo numberFormatInfo = new NumberFormatInfo // Глобальная конвертация
+            bool resultNum = int.TryParse(inputNum, out num); // Создаем еще 1 переменную, которая выдаст true or false
+            // Пробуем ее спарсить. // Впихиваем то, что хотим запарсить, в 2 аргумент передаем ту переменную, которую объявили выше.
+
+            if (resultNum) // Если resultNum == true {};
             {
-                NumberDecimalSeparator = ".",
-            };
-
-            double a = Convert.ToDouble(str, numberFormatInfo);
-            Console.WriteLine(a);
+                Console.WriteLine("Конвертация успешна, значение = " + num);
+            }
+            else
+            {
+                Console.WriteLine("Error, введите число!");
+            }
 
         }
     }
