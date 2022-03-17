@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnCSharp", "LearnCSharp.csproj", "{C13E4410-A738-4C74-B202-B35723944417}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnCSharp", "LearnCSharp.csproj", "{C13E4410-A738-4C74-B202-B35723944417}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeNums", "..\ThreeNums\ThreeNums.csproj", "{23AF0330-17AC-47F0-88DE-B8F3C7D89D78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "..\Converter\Converter.csproj", "{6C04C9F1-0D52-4EF1-A8A6-A2EF886CDB94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C13E4410-A738-4C74-B202-B35723944417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C13E4410-A738-4C74-B202-B35723944417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C13E4410-A738-4C74-B202-B35723944417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23AF0330-17AC-47F0-88DE-B8F3C7D89D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23AF0330-17AC-47F0-88DE-B8F3C7D89D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23AF0330-17AC-47F0-88DE-B8F3C7D89D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23AF0330-17AC-47F0-88DE-B8F3C7D89D78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C04C9F1-0D52-4EF1-A8A6-A2EF886CDB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C04C9F1-0D52-4EF1-A8A6-A2EF886CDB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C04C9F1-0D52-4EF1-A8A6-A2EF886CDB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C04C9F1-0D52-4EF1-A8A6-A2EF886CDB94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
