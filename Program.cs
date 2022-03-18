@@ -7,23 +7,36 @@ namespace LearnCSharp
     {
         static void Main(string[] args)
         {
-            // Среднее арифметическое двух чисел
-            Console.WriteLine("Введите первое число: ");
+            // Проверка на четность
 
-            double firstNum = double.Parse(Console.ReadLine());
+            Console.WriteLine("Введите число, которое будет проверено на четность.");
 
-            Console.WriteLine("Введите второе число: ");
-
-            double secondNum = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Введите третье число");
-
-            double thirdNum = double.Parse(Console.ReadLine());
+            int number;
             
-            double result = (firstNum + secondNum + thirdNum) / 3;
 
-            Console.WriteLine("Среднее арифметическое данных чисел = " + result);
+            number = int.Parse(Console.ReadLine());
 
+
+            if (number % 2 == 0)
+            {
+                Console.WriteLine("Число " + number + " является четным.");
+
+            }
+
+            else if (number == 0)
+            {
+                Console.WriteLine("Ошибка.");
+            }
+
+            else if (number % 2 == 1)
+            {
+                Console.WriteLine("Число " + number + " не является четным :(");
+            }
+
+            else
+            {
+                Console.WriteLine("Ошибка, попробуйте вписать целое число.");
+            }
         }
     }
 }
