@@ -10,51 +10,74 @@ namespace LearnCSharp
 
             double FirstValue, SecondValue;
 
+            Console.WriteLine("Привет, это калькулятор.");
 
-            Console.WriteLine("Введите первое число.");
+            Console.WriteLine("");
+
+            Console.WriteLine("Пока что я умею производить операции только с 2 числами.");
+
+            Console.WriteLine("");
+
+
+            Console.WriteLine("Хорошо, напиши первое число:");
 
             FirstValue = double.Parse(Console.ReadLine());
 
 
-            Console.WriteLine("Введите второе число.");
+            Console.WriteLine("Отлично, напиши второе:");
 
             SecondValue = double.Parse(Console.ReadLine());
 
 
-            Console.WriteLine("Выберите операцию, которую хотите произвести: ");
+            Console.WriteLine("Выбери то, что ты хочешь сделать с числами...");
+
+            Console.WriteLine("");
 
             Console.WriteLine("'+' '-' '*' '/' ");
-            
-            string sign = Console.ReadLine();
 
+            string operation = Console.ReadLine();
 
-            if (sign == "+")
+            switch (operation)
             {
-                double result = FirstValue + SecondValue;
-                Console.WriteLine("Сумма чисел = " + result);
-            }
+                default:
+                    {
+                        Console.WriteLine("Ошибка, следуйте инструкциям.");
+                        break;
+                    }
 
-            else if (sign == "-")
-            {
-                double result = SecondValue - FirstValue;
-                Console.WriteLine("Разность чисел = " + result);
-            }
-
-            else if (sign == "*")
-            {
-                double result = FirstValue * SecondValue;
-                Console.WriteLine("Произведение чисел = " + result);
-            }
-
-            else if (sign == "/")
-            {
-                double result = FirstValue / SecondValue;
-                Console.WriteLine("Деление чисел = " + result);
-            }
-
-            else
-            {
-                Console.WriteLine("Error, следуйте инструкциям.");
+                case "+":
+                    {
+                        double result = FirstValue + SecondValue;
+                        Console.WriteLine("Сумма чисел равна: " + result);
+                        break;
+                    }
+                case "-":
+                    {
+                        double result = FirstValue - SecondValue;
+                        Console.WriteLine("Разность чисел равна: " + result);
+                        break;
+                    }
+                case "*":
+                    {
+                        double result = FirstValue * SecondValue;
+                        Console.WriteLine("Произведние чисел равна: " + result);
+                        break;
+                    }
+                case "/":
+                    {
+                        if (SecondValue == 0)
+                        {
+                            Console.WriteLine("Ошибка..");
+                            
+                        }
+                        else
+                        {
+                            double result = FirstValue / SecondValue;
+                            Console.WriteLine("Делние чисел равна: " + result);
+                        }
+                        
+                        break;
+                    }
             }
 
         }
