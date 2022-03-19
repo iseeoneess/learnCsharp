@@ -7,36 +7,56 @@ namespace LearnCSharp
     {
         static void Main(string[] args)
         {
-            // Проверка на четность
 
-            Console.WriteLine("Введите число, которое будет проверено на четность.");
+            double FirstValue, SecondValue;
 
-            int number;
+
+            Console.WriteLine("Введите первое число.");
+
+            FirstValue = double.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("Введите второе число.");
+
+            SecondValue = double.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("Выберите операцию, которую хотите произвести: ");
+
+            Console.WriteLine("'+' '-' '*' '/' ");
             
+            string sign = Console.ReadLine();
 
-            number = int.Parse(Console.ReadLine());
 
-
-            if (number % 2 == 0)
+            if (sign == "+")
             {
-                Console.WriteLine("Число " + number + " является четным.");
-
+                double result = FirstValue + SecondValue;
+                Console.WriteLine("Сумма чисел = " + result);
             }
 
-            else if (number == 0)
+            else if (sign == "-")
             {
-                Console.WriteLine("Ошибка.");
+                double result = SecondValue - FirstValue;
+                Console.WriteLine("Разность чисел = " + result);
             }
 
-            else if (number % 2 == 1)
+            else if (sign == "*")
             {
-                Console.WriteLine("Число " + number + " не является четным :(");
+                double result = FirstValue * SecondValue;
+                Console.WriteLine("Произведение чисел = " + result);
+            }
+
+            else if (sign == "/")
+            {
+                double result = FirstValue / SecondValue;
+                Console.WriteLine("Деление чисел = " + result);
             }
 
             else
             {
-                Console.WriteLine("Ошибка, попробуйте вписать целое число.");
+                Console.WriteLine("Error, следуйте инструкциям.");
             }
+
         }
     }
 }
