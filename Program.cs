@@ -7,115 +7,37 @@ namespace LearnCSharp
 	{
 		static void Main(string[] args)
 		{
-			while (true)
+			Console.WriteLine("Ты гуль?");
+			int i = 1007;
+			string ghoul = Console.ReadLine();
+			if (ghoul == "я гуль" || ghoul == "Я гуль")
 			{
-				Console.Clear();
-
-
-				double FirstValue, SecondValue;
-				string operation;
-
-				Console.WriteLine("Привет, это калькулятор.");
-
-				Console.WriteLine("");
-
-				Console.WriteLine("Пока что я умею производить операции только с 2 числами.");
-
-				Console.WriteLine("");
-
-				try
+				while (i > 0)
 				{
-					Console.WriteLine("Хорошо, напиши первое число:");
+					if (i == 6)
+					{
+						int j = 40;
+						
+						while (j > 0)
+                        {
+							j--;
+							Thread.Sleep(30);
+							Console.WriteLine("Ты долбаееб.Ф_В)Ф_+");
+							continue;
+                        }
+						break;
+					}
+					else
+					{
+						i -= 7;
+						Thread.Sleep(17);
 
-					FirstValue = double.Parse(Console.ReadLine());
-
-
-					Console.WriteLine("Отлично, напиши второе:");
-
-					SecondValue = double.Parse(Console.ReadLine());
+						string result = i.ToString() + " - 7";
+						Console.WriteLine(result);
+					}
 				}
-				catch (Exception)
-				{
-					Console.WriteLine("Не удалось преобразовать строку в число..");
-
-					Console.WriteLine("Если хочешь продолжить - нажми Enter");
-
-					Console.ReadLine();
-
-					continue;
-				}
-
-
-				Console.WriteLine("Выбери то, что ты хочешь сделать с числами...");
-
-				Console.WriteLine("");
-
-				Console.WriteLine("'+' '-' '*' '/' ");
-				Console.WriteLine("");
-
-				operation = Console.ReadLine();
-
-				switch (operation)
-				{
-					default:
-						{
-							Console.WriteLine("Ошибка, следуйте инструкциям.");
-							break;
-						}
-
-					case "+":
-						{
-							double result = FirstValue + SecondValue;
-							Console.WriteLine("");
-							Console.WriteLine("Сумма чисел равна: " + result);
-							Console.WriteLine("");
-							break;
-						}
-					case "-":
-						{
-							double result = FirstValue - SecondValue;
-							Console.WriteLine("");
-							Console.WriteLine("Разность чисел равна: " + result);
-							Console.WriteLine("");
-							break;
-						}
-					case "*":
-						{
-							double result = FirstValue * SecondValue;
-							Console.WriteLine("");
-							Console.WriteLine("Произведние чисел равна: " + result);
-							Console.WriteLine("");
-							break;
-						}
-					case "/":
-						{
-							if (SecondValue == 0)
-							{
-								Console.WriteLine("");
-								Console.WriteLine(0);
-								Console.WriteLine("");
-
-							}
-							else
-							{
-								double result = FirstValue / SecondValue;
-								Console.WriteLine("");
-								Console.WriteLine("Делние чисел равна: " + result);
-								Console.WriteLine("");
-							}
-
-							break;
-						}
-				}
-				Console.WriteLine("Программа закончила свою работу...");
-
-				Console.WriteLine("");
-
-				Console.WriteLine("Если хочешь продолжить мою работу - нажми ENTEER");
-
-				Console.ReadLine();
-
 			}
+
 		}
 	}
 }
