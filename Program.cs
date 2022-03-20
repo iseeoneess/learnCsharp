@@ -9,6 +9,7 @@ namespace LearnCSharp
 		{
 			Console.WriteLine("Ты гуль?");
 			int i = 1007;
+			int aboba = 1000;
 			string ghoul = Console.ReadLine();
 			if (ghoul == "я гуль" || ghoul == "Я гуль")
 			{
@@ -30,9 +31,10 @@ namespace LearnCSharp
 					else
 					{
 						i -= 7;
+						aboba -= 7;
 						Thread.Sleep(17);
 
-						string result = i.ToString() + " - 7";
+						string result = i.ToString() + " - 7" + " = " + aboba.ToString();
 						Console.WriteLine(result);
 					}
 				}
