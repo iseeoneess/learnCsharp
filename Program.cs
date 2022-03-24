@@ -6,17 +6,34 @@ namespace LearnCSharp
 	{
 		static void Main(string[] args)
 		{
-			// arrays bitch...
+            // arrays bitch...
 
-			int[] myArray = new int[5];
+            //char [] Myarray = Console.ReadLine().ToArray();
 
-			myArray[0] = 1;
-			
-			int a = myArray[0];
+            //foreach (char i in Myarray)
+            //	Console.WriteLine(i);
 
-			Console.WriteLine(a);
+            Console.WriteLine("Введите кол-во элементов массива");
 
-			Console.ReadLine();
+			int inputArray = int.Parse(Console.ReadLine());
+
+			int [] inputArrayValue = new int[inputArray];
+
+			for (int i = 0; i < inputArrayValue.Length; i++)
+            {
+                Console.WriteLine($"\nВведите индекс числа {i + 1}");
+				inputArrayValue[i] = int.Parse(Console.ReadLine());
+
+            }
+
+            Console.Write("\nВывод массива: ");
+
+            foreach (int i in inputArrayValue)
+            {
+                Console.Write(i + " ");
+            }
+            Console.ReadLine();
+
 		}
 	}
 }
