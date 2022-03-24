@@ -6,15 +6,15 @@ namespace LearnCSharp
 	{
 		static void Main(string[] args)
 		{
+			// arrays bitch...
 
-			// Ternar operaion (a == b? true : false;)
-			Console.WriteLine("Введите число больше 5");
+			int[] myArray = new int[5];
 
-			int inputNum = int.Parse(Console.ReadLine());
+			myArray[0] = 1;
+			
+			int a = myArray[0];
 
-			bool outputNum = inputNum < 5 ? false : true;
-
-			Console.WriteLine(outputNum);
+			Console.WriteLine(a);
 
 			Console.ReadLine();
 		}
