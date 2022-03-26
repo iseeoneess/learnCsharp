@@ -1,81 +1,43 @@
 ﻿using System;
+using System.Linq;
 
-namespace LearnCSharp
+namespace Arrays
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			Console.WriteLine("Введите кол-во элементов массива");
-
-			int inputArray = int.Parse(Console.ReadLine()); // Создали переменную в которую кладем наше кол-во
-
-			int[] inputArrayValue = new int[inputArray]; // Создали массив, в котором указали кол-во элементов с атрибутом
-														 // new int t.e кол-во эл. [и указали нашу переменную]
-
-			for (int i = 0; i < inputArrayValue.Length; i++)
-			// Создали цикл, который Перебирает наш массив
-			// и заставляет юзера вводить желаемые числа в массив
-			{
-				Console.WriteLine($"\nВведите индекс числа {i + 1}\n");
-				inputArrayValue[i] = int.Parse(Console.ReadLine());
-
-			}
-
-			Console.Write("Вывод массива: \n");
-			// Использовали foreach, tk он банально проще в синтаксисе.
-			for (int i = inputArrayValue.Length - 1; i >= 0; i--)
-			{
-				Console.WriteLine(inputArrayValue[i]);
-			}
-
-			int resultNum = 0;
-
-			Console.Write("\nСумма четных чисел массива: \n");
-
-			for (int i = 0; i < inputArrayValue.Length; i++)
-			{
-				if (inputArrayValue[i] % 2 == 0)
-				{
-					resultNum += inputArrayValue[i];
-				}
-			}
-			Console.Write("\t");
-			Console.Write(resultNum);
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
 
-			int minValue = inputArrayValue[0];
-			Console.Write("\nМинимальное число массива: \n");
 
-            for (int i = 1; i < inputArrayValue.Length; i++)
+            int[] workArray = { 22, 11, 1, 2, 1, 3, 3, 4, 10, 11, 12, 33, 44, 19, 3, 2, 2 };
+
+
+            Array.Sort(workArray);
+
+            for (int i = 0; i < workArray.Length; i++)
             {
-				if (inputArrayValue[i] < minValue)
-                {
-                    minValue = inputArrayValue[i];
-                }
+                Console.WriteLine(workArray[i]);
             }
-			Console.Write("\t");
-            Console.WriteLine(minValue);
+
+            Console.WriteLine("\t" + workArray.Min()); // вывыдит мин число массива
+            Console.WriteLine("\t" + workArray.Max()); // вывыдит макс число массива
+
+            int [] result = workArray.Distinct().ToArray();  // Отсортировали уникальных чисел..
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.Write($"'{result[i]}' "); // Наше i + '';
+            }
+
+            Console.ReadLine();
 
 
-			//for (int i = 0; i < inputArrayValue.Length; i++)
-			//{
-			//    if (inputArrayValue[i] % 2 == 0)
-			//    {
-			//        for (int k = 0; k < inputArrayValue.Length; k++)
-			//        {
-			//            int result = i;
-			//            if (result == k)
-			//            {
-			//                Console.Write($"");
-			//            }
-			//        }
 
-			//    }
-			//}
 
-			Console.ReadLine();
 
-		}
-	}
+
+
+
+        }
+    }
 }
