@@ -8,60 +8,34 @@ namespace indexsAndDiapasones
 	{
 		static void Main(string[] args)
 		{
-            Console.WriteLine("Данный массив генерирует случайные числа.\n");
+			int [][] randomArray = new int[3][];
 
-            Console.WriteLine("Массив будет представлен в виде таблицы.\n");
+			randomArray[0] = new int[3];
+			randomArray[1] = new int[4];
+			randomArray[2] = new int[5];
 
 
-            Console.WriteLine("Кол-во строк и колонок не должно превышать число 3.\n");
+			Random random = new Random();
 
-            Console.WriteLine("Введите кол-во строк\n");
-            int height = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Введите кол-во колонок\n");
-            int width = int.Parse(Console.ReadLine());
-
-            int[,] twiceArray = new int [height, width];
-
-            
-
-            for (int i = 0; i < twiceArray.GetLength(0); i++)
+            for (int i = 0; i < randomArray.Length; i++)
             {
-                for (int j = 0; j < twiceArray.GetLength(1); j++)
+                for (int j = 0; j < randomArray[i].Length; j++)
                 {
-                    Console.WriteLine($"Позиция заполнения по Y:{i + 1}, по X: {j + 1}");
-                    twiceArray[i, j] = int.Parse(Console.ReadLine());
+                    randomArray[i][j] = random.Next(156);
                 }
             }
 
-
-            Console.WriteLine();
-
-
-
-
-
-            for (int i = 0; i < twiceArray.GetLength(0); i++)
+            for (int i = 0; i < randomArray.Length; i++)
             {
-                if (height >= 4 && width >= 4)
+                for (int j = 0; j < randomArray[i].Length; j++)
                 {
-                    Console.WriteLine("Вы ввели числа выше допустимых значений.\n");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("Закрытие программы\n");
-                    Thread.Sleep(1000);
-                    break;
+                    Console.Write(randomArray[i][j] + "\t");
                 }
-                else {
-                    Console.WriteLine();
-                    for (int j = 0; j < twiceArray.GetLength(1); j++)
-                    {
-                        Console.Write(twiceArray[i, j] + "\t");
-                    }
-                }
-               
+                Console.WriteLine();
             }
 		}
-	}
 
+
+	}
 }
 
