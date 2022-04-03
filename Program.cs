@@ -2,49 +2,32 @@
 using System.Linq;
 using System.Threading;
 
-namespace indexsAndDiapasones
+namespace functionsAndMetods
 {
 	class Program
 	{
+		static int sumsNums(int a, int b)
+		{
+			int result = a + b;
+			return result;
+		}
+
+		static void resultNums (int firstNum, int secondNum, int result)
+            {
+                Console.WriteLine($"Результат сложения {firstNum} и {secondNum} = {result}");
+            }
 		static void Main(string[] args)
 		{
-			int[,,] myArr = new int[2, 4, 5];
+			int a, b, c;
+			a = int.Parse(Console.ReadLine());
+			b = int.Parse(Console.ReadLine());
 
-			Random random = new Random();
+			c = sumsNums(a, b);
 
-			for (int z = 0; z < myArr.GetLength(0); z++)
-			{
-				for (int y = 0; y < myArr.GetLength(1); y++)
-				{
-					for (int x = 0; x < myArr.GetLength(2); x++)
-					{
-						myArr[z, y, x] = random.Next(100);
-					}
-				}
-			}
-
-
-			for (int z = 0; z < myArr.GetLength(0); z++)
-			{
-                Console.WriteLine($"Страница под номером {z + 1}:\n");
-				for (int y = 0; y < myArr.GetLength(1); y++)
-				{
-					for (int x = 0; x < myArr.GetLength(2); x++)
-					{
-                        Console.Write(myArr[z,y,x] + " ");
-					}
-					Console.WriteLine($"Столбец под номером: {y + 1}\n");
-				}
-			}
-
-
-
-
+			resultNums(a, b, c);
 
 			Console.ReadLine();
-
-
+            
 		}
 	}
 }
-
