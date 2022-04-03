@@ -4,30 +4,39 @@ using System.Threading;
 
 namespace functionsAndMetods
 {
+	// Написать метод, который выводит на экран строку.
+	// Символы из которых состит строка и их кол-во вводятся пользователями.
 	class Program
 	{
-		static int sumsNums(int a, int b)
-		{
-			int result = a + b;
-			return result;
-		}
-
-		static void resultNums (int firstNum, int secondNum, int result)
+        static void outputResult(string symbol, int iteration)
+        {
+            if (iteration != 0 && iteration > 0)
             {
-                Console.WriteLine($"Результат сложения {firstNum} и {secondNum} = {result}");
+                for (int i = 0; i < iteration; i++)
+                {
+                    Console.Write($" {symbol}");
+                }
             }
-		static void Main(string[] args)
-		{
-			int a, b, c;
-			a = int.Parse(Console.ReadLine());
-			b = int.Parse(Console.ReadLine());
+            else
+            {
+                Console.WriteLine("Ошибка. Введите положительное число больше нуля.");
 
-			c = sumsNums(a, b);
+            }
+        }
 
-			resultNums(a, b, c);
+		static void Main(string [] args)
+        {
+            Console.WriteLine("Введите символ или строку");
 
-			Console.ReadLine();
+            string symbol = Console.ReadLine();
+
+            Console.WriteLine("Сколько раз вывести это?");
+
+            int iteration = int.Parse(Console.ReadLine());
+
+            outputResult(symbol, iteration);
+
             
-		}
+        }
 	}
 }
