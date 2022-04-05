@@ -2,58 +2,57 @@
 using System.Linq;
 using System.Threading;
 
-namespace findIndexsFromArrays
+namespace findIndexFromArrays
 {
-	// Элемент для поиска индекса в массиве с типом int. Метод должен вернуть индекс первого найденного элемента (если он будет найден)
-	class Program
-	{
-		static void Main(string[] args)
-		{
-
-			int[] arr = new int[10];
-
-			Console.WriteLine("\tДанная программа позволяет найти индекс элемента массива\n");
-
-			Console.WriteLine("Введите желаемое число, которое хотите найти в массиве.");
-
-            int indexValue = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Программа выведет индекс этого числа.");
-
-            Console.WriteLine("Наш массив: ");
-
-			whileArray(arr);
-
-            Console.WriteLine("\nВаш элемент: ");
-
-			findIndexFromArray(arr, indexValue);
-
-			
-
-			
-		}
-
-		static void whileArray(int [] array)
-		{
-			Random random = new Random();
-			for (int r = 0; r < array.Length; r++)
-			{
-				array[r] = random.Next(100);
-			}
+    class Program
+    {
+        static void randomRollingElementsFromArray(int [] array)
+        {
+            Random r = new Random();
 
             for (int i = 0; i < array.Length; i++)
             {
-				Console.Write($"{array[i]} ");
-            }
-		}
-		// Не рабочая функция.
-		static void findIndexFromArray(int [] array,int indexValue)
-        {
-            for (int i = indexValue; i < array.Length; i++)
-            {
-                Console.WriteLine($"Ваше число {array[i]}");
+                array[i] = r.Next(10);
             }
         }
 
-	}
+
+
+        static int findIndexFromArrays(int [] array, int value)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == value) return i;
+            }
+            return -1;
+        }
+        static void Main (string[] args)
+        {
+            int[] arrayRolling = new int[5];
+
+            Console.WriteLine("\tДанная программа выводит содержимое массива.\n");
+
+            Console.WriteLine("Массив содержит 15 целых чисел.");
+
+            Console.WriteLine("\nВы можете попытать свою удачу...\n");
+            
+
+            Console.WriteLine("Введите любое целое число.");
+
+            
+            Console.WriteLine("\nЕсли такое число есть в массиве, то он выведет его и его индекс\n");
+
+
+
+            Console.WriteLine("\n\tА теперь введите число: \n");
+
+            int indexValue = int.Parse(Console.ReadLine());
+
+            randomRollingElementsFromArray(arrayRolling);
+
+            int result = findIndexFromArrays(arrayRolling, indexValue);
+
+            Console.WriteLine(result);
+        }
+    }
 }
