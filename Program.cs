@@ -2,57 +2,90 @@
 using System.Linq;
 using System.Threading;
 
-namespace findIndexFromArrays
+namespace overloadFromMetods
 {
-    class Program
-    {
-        static void randomRollingElementsFromArray(int [] array)
-        {
-            Random r = new Random();
+	class Program
+	{ 
+		static void Main(string [] args)
+		{
+			Console.WriteLine("Данная программа решает простые квадратные уровнения.");
 
-            for (int i = 0; i < array.Length; i++)
+			Console.WriteLine("Вводите поочеердно то, что требует программа.");
+
+			Console.WriteLine("Напоминаю как выглядит квадртаное уравнение:\n");
+
+			Console.WriteLine("Пример: x^2 - 10x + 6 = 0");
+
+			Console.WriteLine("Где x^2 - а, 10x - b, 6 - c");
+
+			Console.WriteLine("Когда будете вводить a и b, учитывайте, что программа автоматически ставит x.");
+
+			Console.WriteLine("Введите a: ");
+			Console.WriteLine("Если вы хотите, чтобы a было в виде x^2, то напишите 0");
+			int a = int.Parse(Console.ReadLine());
+			if (a == 0)
             {
-                array[i] = r.Next(10);
+				a = 1;
             }
-        }
 
+			Console.WriteLine("Введите первый знак (+ или -) : ");
+			char firstSign = char.Parse(Console.ReadLine());
 
-
-        static int findIndexFromArrays(int [] array, int value)
-        {
-            for (int i = 0; i < array.Length; i++)
+			Console.WriteLine("Введите b: ");
+			int b = int.Parse(Console.ReadLine());
+			if (firstSign == '-')
             {
-                if (array[i] == value) return i;
+				b = -b;
             }
-            return -1;
-        }
-        static void Main (string[] args)
-        {
-            int[] arrayRolling = new int[5];
 
-            Console.WriteLine("\tДанная программа выводит содержимое массива.\n");
+			Console.WriteLine("Введите второй знак (+ или -): ");
+			char secondSign = char.Parse(Console.ReadLine());
 
-            Console.WriteLine("Массив содержит 15 целых чисел.");
+			Console.WriteLine("Введите c");
+			int c = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("\nВы можете попытать свою удачу...\n");
-            
+			if (secondSign == '-')
+            {
+				c = -c;
+            }
 
-            Console.WriteLine("Введите любое целое число.");
+			Console.WriteLine("Введите то, что будет после равно");
+			int equals = int.Parse(Console.ReadLine());
 
-            
-            Console.WriteLine("\nЕсли такое число есть в массиве, то он выведет его и его индекс\n");
-
+			
 
 
-            Console.WriteLine("\n\tА теперь введите число: \n");
+			Console.WriteLine($"Ваше уравнение: {a}x^2 {firstSign} {b}x {secondSign} {c} = {equals}");
+			while(true)
+			{
+				int square = Convert.ToInt32(Math.Pow(b, 2));
+				int discriminanteFormula = square - 4 * a * c;
+				int squareDiscriminanteFormula = Convert.ToInt32(Math.Sqrt(discriminanteFormula));
+				if (discriminanteFormula > 0)
+				{
+					int resultX1 = (-b + squareDiscriminanteFormula) / (2 * a);
+					int resultX2 = (-b - squareDiscriminanteFormula) / (2 * a);
 
-            int indexValue = int.Parse(Console.ReadLine());
+					Console.WriteLine($"Первый корень: {resultX1}");
+					Console.WriteLine($"Второй корень: {resultX2}");
+					break;
+				}
 
-            randomRollingElementsFromArray(arrayRolling);
+				if (discriminanteFormula < 0)
+				{
+					Console.WriteLine("Корней нет.");
+					break;
+				}
 
-            int result = findIndexFromArrays(arrayRolling, indexValue);
+				if (discriminanteFormula == 0)
+				{
+					int resultX1 = (-b + squareDiscriminanteFormula) / (2 * a);
 
-            Console.WriteLine(result);
-        }
-    }
+					Console.WriteLine($"Т.к корень дискриминанта равен нулю, то и корень будет 1: {resultX1}");
+					break;
+				}
+			}
+			Console.ReadLine();
+		}
+	}
 }
