@@ -2,26 +2,27 @@
 using System.Linq;
 using System.Threading;
 
-namespace overloadFromMetods
+namespace twiceEquation
 {
 	class Program
 	{ 
 		static void Main(string [] args)
 		{
-			Console.WriteLine("Данная программа решает простые квадратные уровнения.");
+			Console.WriteLine("Данная программа решает простые квадратные уравнения.\n");
 
-			Console.WriteLine("Вводите поочеердно то, что требует программа.");
+			Console.WriteLine("Вводите поочердно то, что требует программа.\n");
 
-			Console.WriteLine("Напоминаю как выглядит квадртаное уравнение:\n");
+			Console.WriteLine("Напоминаю как выглядит квадратное уравнение:\n");
 
 			Console.WriteLine("Пример: x^2 - 10x + 6 = 0");
 
-			Console.WriteLine("Где x^2 - а, 10x - b, 6 - c");
+			Console.WriteLine("\tГде x^2 - а, 10x - b, 6 - c\n");
 
-			Console.WriteLine("Когда будете вводить a и b, учитывайте, что программа автоматически ставит x.");
+			Console.WriteLine("Когда будете вводить a и b, учитывайте, что программа автоматически ставит x.\n");
 
 			Console.WriteLine("Введите a: ");
-			Console.WriteLine("Если вы хотите, чтобы a было в виде x^2, то напишите 0");
+
+			Console.WriteLine("\tЕсли вы хотите, чтобы a было в виде x^2, то напишите 0");
 			int a = int.Parse(Console.ReadLine());
 			if (a == 0)
             {
@@ -55,16 +56,19 @@ namespace overloadFromMetods
 			
 
 
-			Console.WriteLine($"Ваше уравнение: {a}x^2 {firstSign} {b}x {secondSign} {c} = {equals}");
+			Console.WriteLine($"\tВаше уравнение: {a}x^2 {firstSign} {b}x {secondSign} {c} = {equals}");
 			while(true)
 			{
 				int square = Convert.ToInt32(Math.Pow(b, 2));
+
 				int discriminanteFormula = square - 4 * a * c;
+
 				int squareDiscriminanteFormula = Convert.ToInt32(Math.Sqrt(discriminanteFormula));
+
 				if (discriminanteFormula > 0)
 				{
-					int resultX1 = (-b + squareDiscriminanteFormula) / (2 * a);
-					int resultX2 = (-b - squareDiscriminanteFormula) / (2 * a);
+					double resultX1 = (-b + squareDiscriminanteFormula) / (2 * a);
+					double resultX2 = (-b - squareDiscriminanteFormula) / (2 * a);
 
 					Console.WriteLine($"Первый корень: {resultX1}");
 					Console.WriteLine($"Второй корень: {resultX2}");
@@ -79,7 +83,7 @@ namespace overloadFromMetods
 
 				if (discriminanteFormula == 0)
 				{
-					int resultX1 = (-b + squareDiscriminanteFormula) / (2 * a);
+					double resultX1 = (-b + squareDiscriminanteFormula) / (2 * a);
 
 					Console.WriteLine($"Т.к корень дискриминанта равен нулю, то и корень будет 1: {resultX1}");
 					break;
