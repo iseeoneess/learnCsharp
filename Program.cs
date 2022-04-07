@@ -8,24 +8,28 @@ namespace zalupa
         {
             for (int i = 0; i < 1000; i++)
             {
-                int s = i;
-                int[] arr = new int[s];
-                s = s / 10;
-                int n = 1;
-                foreach (int k in arr)
+                int x = i;
+                int q = 9;
+                int l = 0;
+                while (x >= q)
                 {
-                    while (s < 51)
-                    {
-                        s = s + 5;
-                        n *= 2;
-                    }
-                    if (n == 64)
-                    {
-                        Console.WriteLine(i);
-                    }
+                    l += 1;
+                    x -= q;
                 }
+                int m = x;
+                if (m < l)
+                {
+                    m = l;
+                    l = x;
+                }
+                if (l == 4 && m == 5)
+                {
+                    Console.WriteLine();
+                }
+
             }
-            
+            Console.ReadLine();
+
         }
     }
 }
