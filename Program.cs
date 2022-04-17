@@ -3,24 +3,34 @@ using System.Threading;
 
 namespace equals
 {
-    class Progrma
-    {
-        static int [] myArr ()
-        {
-            int[] arr = new int [5];
-            return arr;
-        }
+	class Progrma
+	{
+		static int [] generatorArrays()
+		{
+			int[] array = new int [5];
+
+			Random r = new Random();
+
+			for (int i = 0; i < array.Length; i++)
+			{
+				array[i] = r.Next(10);
+			}
+			return array;
+		}
 
 
+		static void Main (string[] args)
+		{
+			int [] maxIndexArray = generatorArrays();
 
-        static void Main(string [] args)
-        {
-            int [] arr = myArr();
+            for (int i = 0; i < maxIndexArray.Length; i++)
+            {
+                Console.Write(" " + maxIndexArray[i]);
+            }
 
-            arr ??= new int[0];
+			Console.WriteLine("\nМаксимальный элемент массива: " + maxIndexArray.Max());
 
-            Console.WriteLine($"Кол-во элементов в массиве {arr.Length}");
-            
-        }
-    }
+			Console.ReadLine();
+		}
+	}
 }
