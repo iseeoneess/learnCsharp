@@ -5,30 +5,21 @@ namespace equals
 {
     class Progrma
     {
+        static int [] myArr ()
+        {
+            int[] arr = new int [5];
+            return arr;
+        }
+
+
+
         static void Main(string [] args)
         {
-            // Оператор объединения null... ??
-            string a = "";
+            int [] arr = myArr();
 
-            Random random = new Random();
+            arr ??= new int[0];
 
-            int randomInformatin = random.Next(2);
-
-            if (randomInformatin == 0)
-            {
-                a = null;
-            }
-            else if (randomInformatin == 1)
-            {
-                Console.WriteLine("Проверка пройдена, введите текст");
-                a = Console.ReadLine();
-            }
-
-
-            Console.WriteLine(a ?? "Проверка не пройдена!"); // Оператор проверки так сказать
-            // Если в a null, то выведет сообщение справа.
-
-
+            Console.WriteLine($"Кол-во элементов в массиве {arr.Length}");
             
         }
     }
