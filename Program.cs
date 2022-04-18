@@ -3,9 +3,9 @@ using System.Threading;
 
 namespace insertMetod
 {
-	class Program
-	{
-        static void forArrays<T> (T[] arr)
+    class Program
+    {
+        static void forArrays<T>(T[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -14,14 +14,15 @@ namespace insertMetod
             Console.WriteLine();
         }
 
-		static void insertMetod<T>(ref T[] arr, int index, T value)
+        static void insertMetod<T>(ref T[] arr, int index, T value)
         {
-            T[] newArray = new T [arr.Length + 1];
+            T[] newArray = new T[arr.Length + 1];
 
-            newArray [index] = value;
- 
+
+
             if (!(index + 1 > arr.Length))
             {
+                newArray[index] = value;
                 for (int i = 0; i < index; i++)
                 {
                     newArray[i] = arr[i];
@@ -38,20 +39,19 @@ namespace insertMetod
                 Console.WriteLine("Ты долбаеб, указанный индекс больше, чем есть у массива!");
             }
 
+            forArrays(arr);
+
         }
 
-		static void Main(string[] args)
+        static void Main(string[] args)
         {
-			int [] intArray = { 1, 2, 3, 4 };
-			string [] stringArray = { "hi", "bye", "bia", "si" };
+            int[] intArray = { 1, 2, 3, 4 };
+            string[] stringArray = { "hi", "bye", "bia", "si" };
 
-            Program.insertMetod(ref intArray, 3, 3);
+            Program.insertMetod(ref intArray, 21, 3);
             Program.insertMetod(ref stringArray, 1, "bia");
-
-            Program.forArrays(intArray);
-            Program.forArrays(stringArray);
 
             Console.ReadLine();
         }
-	}
+    }
 }
