@@ -5,34 +5,31 @@ namespace equals
 {
 	class Progrma
 	{
-		static ref int [] resizeArrays (ref int [] arrray)
+		static void resizeArray(ref int [] array, int newSize)
         {
-			int size = int.Parse(Console.ReadLine());
+            int [] newArray = new int [newSize];
 
-			arrray = new int[size];
-            return ref arrray;
+            for (int i = 0; i < array.Length && i < newArray.Length; i++)
+            {
+                newArray [i] = array [i];
+            }
+
+            array = newArray;
         }
-
 
 		static void Main(string[] args)
         {
-			int[] beginVersionArray = { 1, 9, 10, 11 };
+            int [] firstArray = { 1, 2, 3, 10, 15, 122 };
 
+            resizeArray (ref firstArray, 9);
 
-            Console.WriteLine("Первоначальный массив: ");
-
-			foreach (int i in beginVersionArray)
+            for (int i = 0; i < firstArray.Length; i++)
             {
-
-				Console.Write(i + " ");
+                Console.Write(firstArray[i] + " ");
             }
-			int [] newVersionArray = resizeArrays(ref beginVersionArray);
+            Console.WriteLine();
 
-			foreach (int i in newVersionArray)
-            {
-                Console.Write(i + " ");
-            }
-
+            Console.ReadKey();
         }
 	}
 }
