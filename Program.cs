@@ -5,34 +5,35 @@ namespace equals
 {
 	class Progrma
 	{
-		static ref int [] resizeArrays (ref int [] arrray)
+
+        // <T> сделали generic метод, ахуеть, это позволяет юзать любой тип данных..
+		static void resizeArray <T> (ref T [] array, int newSize)
         {
-			int size = int.Parse(Console.ReadLine());
+            T[] newArray = new T [newSize];
 
-			arrray = new int[size];
-            return ref arrray;
+            for (int i = 0; i < array.Length && i < newArray.Length; i++)
+            {
+                newArray [i] = array [i];
+            }
+
+            array = newArray;
         }
-
 
 		static void Main(string[] args)
         {
-			int[] beginVersionArray = { 1, 9, 10, 11 };
+            int [] firstArray = { 1, 2, 3, 10, 15, 122 };
+            string[] zeliboba = { "hi", "Hello", "Привет", "Nihao", "Namaste" };
 
+            resizeArray (ref firstArray, 9);
+            resizeArray (ref zeliboba, 3);
 
-            Console.WriteLine("Первоначальный массив: ");
-
-			foreach (int i in beginVersionArray)
+            for (int i = 0; i < firstArray.Length; i++)
             {
-
-				Console.Write(i + " ");
+                Console.Write(firstArray[i] + " ");
             }
-			int [] newVersionArray = resizeArrays(ref beginVersionArray);
+            Console.WriteLine();
 
-			foreach (int i in newVersionArray)
-            {
-                Console.Write(i + " ");
-            }
-
+            Console.ReadKey();
         }
 	}
 }
