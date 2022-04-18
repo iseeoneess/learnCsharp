@@ -9,21 +9,29 @@ namespace insertMetod
         {
             for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine(arr[i]);
+                Console.Write(arr[i] + " ");
             }
+            Console.WriteLine();
         }
 
 		static void insertMetod<T>(ref T[] arr, int index, T value)
         {
-            T[] newArray = arr;
+            T[] newArray = new T [arr.Length + 1];
+
+            newArray [index] = value;
  
             if (!(index + 1 > arr.Length))
             {
-                for (int i = 0; i < arr.Length; i++)
+                for (int i = 0; i < index; i++)
                 {
                     newArray[i] = arr[i];
                 }
-                arr[index] = value;
+
+                for (int i = index; i < arr.Length; i++)
+                {
+                    newArray[i + 1] = arr[i];
+                }
+                arr = newArray;
             }
             else
             {
