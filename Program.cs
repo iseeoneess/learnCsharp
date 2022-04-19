@@ -9,7 +9,7 @@ namespace deleteElementInArrays
 
     class Program
     {
-        static void outputGiveAnswer(int[] arr, int index)
+        static void outputGiveAnswer()
         {
             Console.WriteLine("\nЕсли хотите запустить программу заново, нажмите y\n");
 
@@ -32,7 +32,6 @@ namespace deleteElementInArrays
                     {
                         Console.WriteLine("\nХорошо, закрываю программу...");
                         Thread.Sleep(1500);
-
                         break;
                     }
 
@@ -42,8 +41,7 @@ namespace deleteElementInArrays
 
                     Console.WriteLine("Предоставляю вам выбрать еще раз.\n");
                     Thread.Sleep(1500);
-
-                    checkArray(arr, index);
+                    outputGiveAnswer();
                     break;
             }
         }
@@ -74,8 +72,6 @@ namespace deleteElementInArrays
             int index = int.Parse(Console.ReadLine());
 
             deleteIndexArray(numberArray, index);
-
-            againProgramBegin();
         }
 
         static void checkArray(int[] arr, int index)
@@ -85,14 +81,14 @@ namespace deleteElementInArrays
                 Console.WriteLine("Указан отрицательный индекс.");
                 Thread.Sleep(1500);
 
-                outputGiveAnswer(arr, index);
+                outputGiveAnswer();
             }
             else if (index >= arr.Length)
             {
                 Console.WriteLine("Индекс выходит за допустимые значения массива.");
                 Thread.Sleep(1500);
 
-                outputGiveAnswer(arr, index);
+                outputGiveAnswer();
             }
             else if (index == arr.Length - 1)
             {
@@ -103,7 +99,7 @@ namespace deleteElementInArrays
                         Console.WriteLine("Вы не можете удалить массив целиком :0");
                         Thread.Sleep(1500);
 
-                        outputGiveAnswer(arr, index);
+                        outputGiveAnswer();
                     }
                 }
             }
@@ -112,42 +108,47 @@ namespace deleteElementInArrays
         {
             while (true) // Бесконечный цикл, чтобы было использовать break;
             {
-                if (index == arr.Length - 1) // Если индекс = 0 и массив равен 1 - 1, т.е 0, то
+                if (index == 0) // Если индекс 0, то перезапуск
                 {
-                    if (index == 0) // Если индекс 0, то перезапуск
-                    {
-                        if (arr.Length == 1)
-                        {
-                            checkArray(arr, index);
-                        }
-                    }
-                }
-                else
-                {
-                    if (index >= 0 && index < arr.Length)
-                    {
-                        int[] newArray = new int[arr.Length - 1];
-
-                        for (int i = 0; i < index; i++)
-                            newArray[i] = arr[i];
-
-                        for (int i = index + 1; i < arr.Length; i++)
-                            newArray[i - 1] = arr[i];
-
-                        arr = newArray;
-
-                        Console.WriteLine("Ваш новый массив: \n");
-                        forArrays(newArray);
-                        break;
-                    }
-                    else
+                    if (arr.Length == 1)
                     {
                         checkArray(arr, index);
                         break;
                     }
                 }
+                else if (index > arr.Length)
+                {
+                    checkArray(arr, index);
+                    break;
+                }
+
+                else if (index >= 0 && index < arr.Length)
+                {
+                    int[] newArray = new int[arr.Length - 1];
+
+                    for (int i = 0; i < index; i++)
+                        newArray[i] = arr[i];
+
+                    for (int i = index + 1; i < arr.Length; i++)
+                        newArray[i - 1] = arr[i];
+
+                    arr = newArray;
+
+                    Console.WriteLine("Ваш новый массив: \n");
+
+                    forArrays(newArray);
+
+                    outputGiveAnswer();
+                    break;
+                }
+                else
+                {
+                    outputGiveAnswer();
+                    break;
+                }
             }
         }
+
 
         static void valueIndex(int[] arr)
         {
@@ -165,47 +166,6 @@ namespace deleteElementInArrays
             forArrays(arr); // Вызываем метод, который покажет получившейся массив.
         }
 
-        static void againProgramBegin()
-        {
-            Thread.Sleep(1000);
-            Console.WriteLine("\tХотите еще раз попробовать?\n");
-            Thread.Sleep(1500);
-
-            Console.WriteLine("Если хотите продолжить нажмите 'y'\n");
-            Thread.Sleep(1000);
-
-            Console.WriteLine("Если хотите завершить нажмите 'n'\n");
-            Thread.Sleep(1000);
-
-            ConsoleKeyInfo inputAnswer = Console.ReadKey();
-            switch (inputAnswer.Key)
-            {
-                case ConsoleKey.Y:
-                    {
-                        comeBackMetod();
-                        break;
-                    }
-                case ConsoleKey.N:
-                    {
-                        Console.WriteLine("Хорошо, завершаю программу..");
-                        Thread.Sleep(1000);
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("Вы нажали другую кнопку.\n");
-                        Thread.Sleep(1000);
-
-                        Console.WriteLine("Я это расцениваю как ошибку.");
-
-                        Console.WriteLine("\nПерезапускаю программу....");
-                        Thread.Sleep(1000);
-
-                        againProgramBegin();
-                        break;
-                    }
-            }
-        }
 
 
         static void Main(string[] args)
@@ -228,8 +188,7 @@ namespace deleteElementInArrays
 
             deleteIndexArray(numberArray, index); // Запускает метод, который удалит нам нужный индекс..
             Thread.Sleep(1500);
-
-            againProgramBegin();
         }
     }
 }
+
