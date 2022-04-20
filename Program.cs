@@ -134,7 +134,7 @@ namespace deleteElementInArrays
                 }
                 else
                 {
-                    outputGiveAnswer();
+                    checkArray(arr,index);
                     break;
                 }
             }
