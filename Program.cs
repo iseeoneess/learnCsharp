@@ -9,6 +9,23 @@ namespace deleteElementInArrays
 
     class Program
     {
+        static void comeBackMetod()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Укажи размер одномерного массива.");
+            int valueIndexes = int.Parse(Console.ReadLine());
+
+            int[] numberArray = new int[valueIndexes];
+
+            valueIndex(numberArray);
+
+
+            Console.WriteLine("Укажи под каким индексом нужно удалить элемент.");
+            int index = int.Parse(Console.ReadLine());
+
+            deleteIndexArray(numberArray, index);
+        }
         static void outputGiveAnswer()
         {
             Console.WriteLine("\nЕсли хотите запустить программу заново, нажмите y\n");
@@ -45,35 +62,6 @@ namespace deleteElementInArrays
                     break;
             }
         }
-
-        static void forArrays(int[] arr) // default foreach array.
-        {
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write(arr[i] + " ");
-            }
-            Console.WriteLine();
-        }
-
-
-        static void comeBackMetod()
-        {
-            Console.Clear();
-
-            Console.WriteLine("Укажи размер одномерного массива.");
-            int valueIndexes = int.Parse(Console.ReadLine());
-
-            int[] numberArray = new int[valueIndexes];
-
-            valueIndex(numberArray);
-
-
-            Console.WriteLine("Укажи под каким индексом нужно удалить элемент.");
-            int index = int.Parse(Console.ReadLine());
-
-            deleteIndexArray(numberArray, index);
-        }
-
         static void checkArray(int[] arr, int index)
         {
             if (index < 0)
@@ -118,16 +106,19 @@ namespace deleteElementInArrays
                 }
                 else if (index > arr.Length)
                 {
-                    checkArray(arr, index);
+                    checkArray(arr, index); // Если индекс выходит за пределы массива, то массив отправляется на проверку.
                     break;
                 }
 
                 else if (index >= 0 && index < arr.Length)
                 {
                     int[] newArray = new int[arr.Length - 1];
+                    // т.к мы удаляем 1 элемент, создаем новый массив
+                    // в который помещаем на 1 элемент меньше.
 
                     for (int i = 0; i < index; i++)
                         newArray[i] = arr[i];
+                        // Циклом перебираем 
 
                     for (int i = index + 1; i < arr.Length; i++)
                         newArray[i - 1] = arr[i];
@@ -149,6 +140,14 @@ namespace deleteElementInArrays
             }
         }
 
+        static void forArrays(int[] arr) // default foreach array.
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i] + " ");
+            }
+            Console.WriteLine();
+        }
 
         static void valueIndex(int[] arr)
         {
@@ -165,8 +164,6 @@ namespace deleteElementInArrays
             Console.WriteLine("Ваш массив: ");
             forArrays(arr); // Вызываем метод, который покажет получившейся массив.
         }
-
-
 
         static void Main(string[] args)
         {
