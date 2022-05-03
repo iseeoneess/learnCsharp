@@ -1,78 +1,56 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 
 
-namespace enuming
+namespace exampleForOOP
 {
-    class Program
+    class Car
     {
-        enum Countries
+        public int priceCar;
+        public string modelName;
+        public int mileAge;
+        public int horsePower;
+        public string colorCar;
+    }
+
+
+    class inputCharacteristicCar
+    {
+        static Car getCar()
         {
-            Russia = 1, 
-            USA,
-            Poland,
-            Japan,
-            UkraineDoggy,
-            UK,
-            Germany
+            var car = new Car();
+
+            Console.Write("Input price car: \n");
+            car.priceCar = int.Parse(Console.ReadLine());
+
+            Console.Write("Input model name car: \n");
+            car.modelName = Console.ReadLine();
+
+            Console.Write("Input mile age car: \n");
+            car.mileAge = int.Parse(Console.ReadLine());
+
+            Console.Write("Input horse power car: \n");
+            car.horsePower = int.Parse(Console.ReadLine());
+
+            Console.Write("Input color car: \n");
+            car.colorCar = Console.ReadLine();
+            return car;
         }
+
+        static void printCarCharacteristic (Car car)
+        {
+            Console.WriteLine($"Price car: {car.priceCar}$");
+            Console.WriteLine($"Model name: {car.modelName}");
+            Console.WriteLine($"Mile age car: {car.mileAge} km/h");
+            Console.WriteLine($"Horse power car: {car.horsePower} hp");
+            Console.WriteLine($"Color car: {car.colorCar}");
+        }
+
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите страну из приведеннго списка:");
-
-            var countries = Enum.GetValues(typeof(Countries));
-
-            foreach (var item in countries)
-            {
-                Console.Write(item + " ");
-            }
-
-            
-
-           
-
-            Console.WriteLine("\nВведите желаемую страну: ");
-
-            string inputValueOfCountry = Console.ReadLine();
-
-            Countries country = (Countries)Enum.Parse(typeof(Countries), inputValueOfCountry, ignoreCase: true);
-
-
-            switch (country)
-            {
-                case Countries.Russia:
-                    Console.WriteLine($"You choosed {Countries.Russia}");
-                    break;
-
-                case Countries.USA:
-                    Console.WriteLine($"You choosed {Countries.USA}");
-                    break;
-
-                case Countries.Poland:
-                    Console.WriteLine($"You choosed {Countries.Poland}");
-                    break;
-
-                case Countries.Japan:
-                    Console.WriteLine($"You choosed {Countries.Japan}");
-                    break;
-
-                case Countries.UkraineDoggy:
-                    Console.WriteLine($"You choosed {Countries.UkraineDoggy}");
-                    break;
-
-                case Countries.UK:
-                    Console.WriteLine($"You choosed {Countries.UK}");
-                    break;
-
-                case Countries.Germany:
-                    Console.WriteLine($"You choosed {Countries.Germany}");
-                    break;
-
-                default:
-                    Console.WriteLine("You don't choosed country.");
-                    break;
-            }
+            printCarCharacteristic(getCar());
         }
     }
 }
