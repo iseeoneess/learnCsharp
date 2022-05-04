@@ -1,56 +1,100 @@
 ﻿using System;
-using System.Linq;
 using System.Threading;
 
-
-namespace exampleForOOP
+namespace carDrive
 {
-    class Car
-    {
-        public int priceCar;
-        public string modelName;
-        public int mileAge;
-        public int horsePower;
-        public string colorCar;
-    }
+	class Car
+	{
+		private int speed = 0;
 
 
-    class inputCharacteristicCar
-    {
-        static Car getCar()
-        {
-            var car = new Car();
 
-            Console.Write("Input price car: \n");
-            car.priceCar = int.Parse(Console.ReadLine());
+		private void randomNumForGiveInfoOrSpeedInMethod()
+		{
 
-            Console.Write("Input model name car: \n");
-            car.modelName = Console.ReadLine();
+			Random random = new Random();
 
-            Console.Write("Input mile age car: \n");
-            car.mileAge = int.Parse(Console.ReadLine());
+			int randomNum = random.Next(-100, 100);
 
-            Console.Write("Input horse power car: \n");
-            car.horsePower = int.Parse(Console.ReadLine());
+			if (randomNum > 0)
+			{
+				giveSpeedForCar();
+			}
 
-            Console.Write("Input color car: \n");
-            car.colorCar = Console.ReadLine();
-            return car;
-        }
+			if (randomNum < 0)
+			{
+				giveMinusSpeedForCar();
+			}
 
-        static void printCarCharacteristic (Car car)
-        {
-            Console.WriteLine($"Price car: {car.priceCar}$");
-            Console.WriteLine($"Model name: {car.modelName}");
-            Console.WriteLine($"Mile age car: {car.mileAge} km/h");
-            Console.WriteLine($"Horse power car: {car.horsePower} hp");
-            Console.WriteLine($"Color car: {car.colorCar}");
-        }
+			if (randomNum == 0)
+			{
+				stopSpeedForCar();
+			}
+		}
 
 
-        static void Main(string[] args)
-        {
-            printCarCharacteristic(getCar());
-        }
-    }
+		public void giveInfoForSpeedCar ()
+		{
+			randomNumForGiveInfoOrSpeedInMethod();
+
+			if (speed > 0)
+			{
+				Console.WriteLine($"\tДвижемся со скоростью {speed} км\\ч");
+			}
+
+			if (speed == 0)
+			{
+				Console.WriteLine($"\t\nСтоим на месте, т.к скорость {speed} км\\ч");
+			}
+
+			if (speed < 0)
+			{
+				Console.WriteLine($"\t\nЕдем назад со скоростью {-speed} км\\ч");
+			}
+
+			
+		}
+
+		private int stopSpeedForCar() 
+		{ 
+
+			Random random = new Random();
+
+			speed = random.Next(0, 1);
+
+			return speed;
+		}
+
+		private int giveSpeedForCar()
+		{
+
+			Random random = new Random();
+
+			speed = random.Next(10);
+
+			return speed;
+		}
+
+		private int giveMinusSpeedForCar ()
+		{
+
+			Random random = new Random();
+
+			speed = random.Next(-10, 0);
+
+			return speed;
+		}
+
+	}
+
+	class Program
+	{
+		static void Main(string [] args)
+		{
+			var car = new Car();
+
+			car.giveInfoForSpeedCar();
+		}
+
+	}
 }
