@@ -1,44 +1,60 @@
 ﻿using System;
 using System.Threading;
 
-
-namespace ThisInCSHARP
+namespace getSets
 {
-    class Student
+    class someone
     {
-        private DateOnly birthday = new DateOnly();
-        private string firstName;
-        private string surName;
-        private string lastName;
+        private int x;
 
-        public Student (DateOnly birthday, string firstName, string surName, string lastName)
+        private int setX()
         {
-            this.birthday = birthday;
-            this.firstName = firstName;
-            this.surName = surName;
-            this.lastName = lastName;
+            return x;
+        } 
+
+        private void setX(int x)
+        {
+            this.x = x;
+            return;
         }
 
-        public void Print ()
+        private int number;
+
+        public int numberValue
         {
-            Console.WriteLine($"Студент: \n" +
-                $"\tИмя: {firstName} \n" +
-                $"\tФамилия: {surName}\n" +
-                $"\tОтчество: {lastName}\n" +
-                $"\tДата рождения: {birthday}");
-        } 
+            get { return number; }
+            set { number = value; }
+        }
+
+        private int myVar;
+
+        public int Age
+        {
+            get { return myVar; }
+            set { myVar = value + 1; }
+        }
+
+
+        public void PrintAge()
+        {
+            Console.WriteLine($"Age: {Age}");
+        }
+
     }
 
 
 
     class Program
     {
-
         static void Main(string[] args)
-        { 
-            Student student = new Student(new DateOnly(2022,05,20), "Абобус", "Дыбенко", "Михайлович");
+        {
+            someone someone = new someone();
+            someone.Age = 10;
+            someone.PrintAge();
 
-            student.Print();
+            int age = someone.Age;
+            age += 1;
+            Console.WriteLine($"Age main = {age}");
         }
     }
 }
