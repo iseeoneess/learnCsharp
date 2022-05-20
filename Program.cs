@@ -1,73 +1,44 @@
 ﻿using System;
 using System.Threading;
 
-namespace classConstructor
-{
 
-	class Gun
-	{
-        public Gun(bool m4a1)
+namespace ThisInCSHARP
+{
+    class Student
+    {
+        private DateOnly birthday = new DateOnly();
+        private string firstName;
+        private string surName;
+        private string lastName;
+
+        public Student (DateOnly birthday, string firstName, string surName, string lastName)
         {
-			this.m4a1 = m4a1;
+            this.birthday = birthday;
+            this.firstName = firstName;
+            this.surName = surName;
+            this.lastName = lastName;
         }
 
-		private bool m4a1;
-
-		private void Reload()
-		{
-				Console.WriteLine("Оружие не заряжено.");
-				Thread.Sleep(500);
-				Console.WriteLine("Отправляю на перезарядку!!");
-				Thread.Sleep(1050);
-				Console.WriteLine("Готово.");
-				m4a1 = true;
-				Shoot();
-		}
-
-		public void Shoot ()
-		{
-			if (m4a1)
-                Console.WriteLine("Выстрел!");
-			else
-				Reload();
-			m4a1 = false;
-		}
-	}
-
-	class Program
-	{
-		static void conditionGuns ()
+        public void Print ()
         {
-			Gun gun;
-			Console.WriteLine("Введите состояние пушки. '1 - заряжено, 2 - не заряжено'");
-
-			int conditionGun = int.Parse(Console.ReadLine());
-
-			switch (conditionGun)
-			{
-				case 1:
-					gun = new Gun(true);
-					gun.Shoot();
-					break;
-				case 2:
-					gun = new Gun(false);
-					gun.Shoot();
-					break;
-				default:
-					Console.WriteLine("Попробуйте еще раз!");
-					conditionGuns();
-					break;
-			}
-
-		}
+            Console.WriteLine($"Студент: \n" +
+                $"\tИмя: {firstName} \n" +
+                $"\tФамилия: {surName}\n" +
+                $"\tОтчество: {lastName}\n" +
+                $"\tДата рождения: {birthday}");
+        } 
+    }
 
 
-		static void Main(string [] args)
-		{
-			
-			conditionGuns();
-		}
 
-		
-	}
+    class Program
+    {
+
+        static void Main(string[] args)
+        { 
+            Student student = new Student(new DateOnly(2022,05,20), "Абобус", "Дыбенко", "Михайлович");
+
+            student.Print();
+        }
+    }
 }
