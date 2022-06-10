@@ -3,14 +3,14 @@ using System.Threading;
 
 namespace prototypeChance
 {
-    class GiveAnswer
-    {
-        public int giveNumberForAnswer;
-        private int randomNum;
+	class Program
+	{ 
+		static void Main(string [] args)
+		{
+			Console.Title = "Квадратные уравнения";
+			Console.ForegroundColor = ConsoleColor.Green;
 
-        private void generateRandomNum()
-        {
-            Random r = new Random();
+			Console.WriteLine("Данная программа решает простые квадратные уравнения.\n");
 
             randomNum = r.Next(10);
             return;
